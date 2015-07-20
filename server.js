@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 mongoose.createConnection('mongodb://localhost/womenshealth');
  
 app.get('/', function (req, res) {
-  res.send('Hello World')
+  res.sendFile(__dirname + '/public/views/index.html')
 });
 
 mongoose.connect(
