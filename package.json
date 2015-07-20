@@ -1,7 +1,6 @@
 {
-  "name": "project_1",
+  "name": "womenshealth",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,5 +11,15 @@
   "dependencies": {
     "body-parser": "^1.13.2",
     "express": "^4.13.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kara9125/womenshealth.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kara9125/womenshealth/issues"
+  },
+  "homepage": "https://github.com/Kara9125/womenshealth#readme",
+  "description": ""
 }
