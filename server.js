@@ -5,7 +5,7 @@ var express = require('express'),
 
 app.use(bodyParser.urlencoded({extended: true}));
 
-mongoose.createConnection('mongodb://localhost/womenshealth');
+// mongoose.createConnection('mongodb://localhost/womenshealth');
  
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/public/views/index.html')
