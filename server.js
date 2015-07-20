@@ -5,7 +5,7 @@ var express = require('express'),
 
 app.use(bodyParser.urlencoded({extended: true}));
 
-mongoose.connect('mongodb://localhost/test');
+mongoose.createConnection('mongodb://process.env.PORT || 3000');
  
 app.get('/', function (req, res) {
   res.send('Hello World')
