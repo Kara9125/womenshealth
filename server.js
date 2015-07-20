@@ -5,7 +5,7 @@ var express = require('express'),
 
 app.use(bodyParser.urlencoded({extended: true}));
 
-mongoose.createConnection('mongodb://process.env.PORT || 3000');
+mongoose.createConnection('mongodb://localhost/womenshealth');
  
 app.get('/', function (req, res) {
   res.send('Hello World')
