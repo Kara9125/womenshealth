@@ -4,7 +4,7 @@ var express = require('express'),
 	mongoose = require('mongoose');
 
 app.use(bodyParser.urlencoded({extended: true}));
-
+app.use(express.static(__dirname + '/public'));
 // mongoose.createConnection('mongodb://localhost/womenshealth');
  
 app.get('/', function (req, res) {
