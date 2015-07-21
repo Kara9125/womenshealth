@@ -5,10 +5,11 @@ var express = require('express'),
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
-mongoose.createConnection('mongodb://localhost/womenshealth');
+// mongoose.createConnection('mongodb://localhost/womenshealth');
  
 app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/public/views/index.html')
+  console.log("good times!");
+  res.sendFile(__dirname + '/public/views/index.html');
 });
 
 mongoose.connect(
