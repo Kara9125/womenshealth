@@ -1,15 +1,13 @@
 var mongoose = require('mongoose'),
-	Schema = mongoose.Schema;
+	Schema = mongoose.Schema,
 	bcrypt = require('bcrypt'),
-	salt = bcrypt.genSaltSync(10),
-	Log = require('./log');
+	salt = bcrypt.genSaltSync(10);
+	
 
 var UserSchema = new Schema({
-	firstName: String,
-	lastName: String,
 	email: String,
 	passwordDigest: String,
-	logs: [Log.schema]
+	// posts: [Post.schema]
 });
 
 UserSchema.statics.createSecure = function (userData, callback) {
@@ -19,15 +17,34 @@ UserSchema.statics.createSecure = function (userData, callback) {
 		bcrypt.hash(userData.password, salt, function (err, hash) {
 			console.log(hash);
 		that.create({
-			firstName: userData.firstName,
-			lastName: userData.lastName,
-			email: userData.email
+			email: userData.email,
 			passwordDigest: hash 
-		}, callback);
+			}, callback);
 		});
 	});
 };
 
-UserSchema.statics.authenticate = function (email, password, callback){
-	this.findOne({email: email}), function (err, user)
-}
+UserSchema.statics.authenticate = function (email, password, callback) {
+  // find user by email entered at log in
+  this.findOne({email: email}, function (err, user) {
+    console.log(user);
+
+    // throw error if can't find user
+    if (user === null) {
+      throw new Error('Can\'t find user with email ' + email);
+
+    // if found user, check if password is correct
+    } else if (user.checkPassword(password)) {
+      callback(null, user);
+    }
+  });
+};
+
+UserSchema.methods.checkPassword = function (password) {
+  // run hashing algorithm (with salt) on password user enters in order to compare with `passwordDigest`
+  return bcrypt.compareSync(password, this.passwordDigest);
+};
+
+// create and export User model
+var User = mongoose.model('User', UserSchema);
+module.exports = User;

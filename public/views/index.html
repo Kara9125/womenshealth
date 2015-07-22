@@ -22,26 +22,29 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">Edit This</a>
+        <a class="navbar-brand" href="#" data-toggle="modal" data-target="#signup-modal">Sign Up</a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="/">Edit this</a></li>
+          
+          <li><a class="navbar-brand" href="#" data-toggle="modal" data-target="#login-modal">Log In</a></li>
+          <li><a class="navbar-brand" href="/logout">Logout</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right" id="nav-links">
           <!-- underscore template for nav links -->
-          // <script type="text/template" id="nav-template">
-          //   <% if (currentUser) { %>
-          //     <li><a href="/profile">Profile</a></li>
-          //     <li><a href="/logout">Log Out</a></li>
-          //   <% } else { %>
-          //     <li><a href="#" data-toggle="modal" data-target="#signup-modal">Sign Up</a></li>
-          //     <li><a href="#" data-toggle="modal" data-target="#login-modal">Log In</a></li>
-          //   <% } %>
-         </script>
+          <!-- <script type="text/template" id="nav-template">
+            // <% if (currentUser) { %>
+            //   <li><a href="/profile">Profile</a></li>
+            //   <li><a href="/logout">Log Out</a></li>
+            // <% } else { %>
+            //   <li><a href="#" data-toggle="modal" data-target="#signup-modal">Sign Up</a></li>
+            //   <li><a href="#" data-toggle="modal" data-target="#login-modal">Log In</a></li>
+            // <% } %>
+         </script>-->
         </ul>
-      </div><!-- /.navbar-collapse -->
+      </div>
+      <!-- /.navbar-collapse -->
       <div class="container">
   <div class="jumbotron">
     <h1>Women's Health Essentials!</h1>      
@@ -52,7 +55,7 @@
   </nav>
 
   <!-- signup modal -->
-  <!-- <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="signupModal">
+  <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="signupModal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -61,15 +64,6 @@
         </div>
         <form method="post" action="/users">
           <div class="modal-body">
-            <div class="form-group">
-              <input type="text" name="user[firstName]" class="form-control" placeholder="First Name">
-            </div>
-            <div class="form-group">
-              <input type="text" name="user[lastName]" class="form-control" placeholder="Last Name">
-            </div>
-            <div class="form-group">
-              <input type="text" name="user[avatar]" class="form-control" placeholder="Avatar (Image URL)">
-            </div>
             <div class="form-group">
               <input type="email" name="user[email]" class="form-control" placeholder="Email">
             </div>
@@ -84,10 +78,10 @@
         </form>
       </div>
     </div>
-  </div> -->
+  </div>
 
   <!-- login modal -->
-  <!-- <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="loginModal">
+  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="loginModal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -109,7 +103,7 @@
           </div>
         </form>
       </div>
-    </div> -->
+    </div>
   </div>
 
   <div class="container">
@@ -117,9 +111,9 @@
       <div class="col-md-3 col-sm-4">
         <div class="well">
           <p>New Post</p>
-          <form id="new-log">
+          <form id="new-post">
             <div class="form-group">
-              <select class="form-control" id="type">
+              <select class="form-control" id="topic">
                 <option disabled selected>Topics</option>
                 <option>Sexual Health</option>
                 <option>Reproductive and Menstrual Health</option>
@@ -127,7 +121,7 @@
               </select>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Post" id="posts">
+              <input type="text" class="form-control" placeholder="Post" id="content">
             </div>
             <div class="form-group">
               <input type="submit" value="Save" class="btn btn-primary btn-block">
