@@ -24,3 +24,4 @@ $(function() {
   mainController.showCurrentUser();
 
 });
+
