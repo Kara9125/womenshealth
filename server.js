@@ -81,9 +81,11 @@ app.use('/', function (req, res, next) {
 			email: req.body.email,
 			password: req.body.password
 		};
+			console.log(userData);
 		User.authenticate(userData.email, userData.password, function (err, user) {
 			if (user){
 				req.login(user);
+
 				console.log('logged in')
 				res.json(user);
 			} else {

@@ -19,7 +19,47 @@ $(function() {
         $('#nav-links').append($navHtml);
       });
     }
-  };
+      $('#signup').on('submit', function(event) {
+        event.preventDefault();
+
+        // $.ajax({
+        //     type: 'POST',
+        //     url: '/api/users',
+        //     data: {
+        //         user: {
+        //             name: $('#name').val(),
+        //             email: $('#email').val(),
+        //             password: $('#password').val()
+        //         }
+        //     },
+        //     success: function(data) {
+        //         window.location = '/gallery';
+        //     },
+        //     error: function(jqXHR, textStatus, errorThrown) {
+        //         alert('Invalid input');
+        //     }
+        // });
+        
+        // $('#login').on('submit', function(event) {
+        // event.preventDefault();
+
+        // $.ajax({
+        //     type: 'POST',
+        //     url: '/api/users',
+        //     data: {
+        //         user: {
+        //             name: $('#name').val(),
+        //             email: $('#email').val(),
+        //             password: $('#password').val()
+        //         }
+        //     },
+        //     success: function(data) {
+        //         window.location = '/gallery';
+        //     },
+        //     error: function(jqXHR, textStatus, errorThrown) {
+        //         alert('Invalid input');
+        //     }
+        // });
 
   mainController.showCurrentUser();
 

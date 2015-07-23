@@ -1,13 +1,14 @@
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema,
 	bcrypt = require('bcrypt'),
-	salt = bcrypt.genSaltSync(10);
+	salt = bcrypt.genSaltSync(10),
+	Post = require('./post');
 	
 
 var UserSchema = new Schema({
 	email: String,
 	passwordDigest: String,
-	// posts: [Post.schema]
+	posts: [Post.schema]
 });
 
 UserSchema.statics.createSecure = function (userData, callback) {
