@@ -20,7 +20,7 @@ $(function() {
 
         $.post("/api/users", user, function(data){
             console.log(data)
-            //SUCCESS
+            $('#signup-modal').modal('hide');
 
         }).fail(function(data){
             //ERROR
@@ -39,8 +39,8 @@ $(function() {
 
         $.post("/api/users", user, function(data){
             console.log(data)
-            // SUCCESS
-        }).fal(function(data){
+            $('#login-modal').modal('hide');
+        }).fail(function(data){
             // ERROR
         });
     });
