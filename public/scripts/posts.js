@@ -63,6 +63,11 @@ $(function() {
         $(this)[0].reset();
       });
     }
+    // $("#myform").validate({
+    //   submitHandler: function(form) {
+    //     form.submit();
+    //   }
+    // }); 
   };
 
   postsController.setupView();

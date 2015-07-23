@@ -3,7 +3,7 @@ var express = require('express'),
  	// _ = require('underscore'),
 	bodyParser = require('body-parser'),
 	mongoose = require('mongoose');
-	// session = require('express-session');
+	session = require('express-session');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
@@ -61,16 +61,15 @@ app.use('/', function (req, res, next) {
   		res.sendFile(__dirname + '/public/views/index.html');
 	});
 
-	app.post('/users', function (req, res){
+	app.post('/api/users', function (req, res){
 		console.log("server received signup form date: ", req.body.user);
-		var newUser = req.body.user;
-		User.createSecure(newUser, function (err, user){
+		User.createSecure(req.body, function (err, user){
 			req.login(user);
-			res.redirect("/");
+			res.json(user);
 		});
 	});
 
-	app.get('/currentuser', function (req,res){
+	app.get('/api/me', function (req,res){
 		req.currentUser(function (err, user){
 			res.json(user);
 		});
